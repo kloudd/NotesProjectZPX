@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes</title>
+</head>
+<body>
+
+<h1>this is the user edit notes </h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label>Note</label>
+            <input type="text" hidden name="id" value="{{notes.id}}">
+            <input type="text" name="note" value="{{notes.data}}">
+        </p>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
+<script>
+
+</script>

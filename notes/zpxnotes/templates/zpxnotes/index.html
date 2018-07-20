@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes</title>
+</head>
+<body>
+
+<h1>this is the user notes list</h1>
+<table>
+{% for note in notes %}
+
+<tbody>
+<tr>
+    <td>{{note.data}}</td>
+    <td><a href="edit?id={{note.id}}">Edit </a> </td>
+    <td><a href="delete?id={{note.id}}">Delete </a><br></td>
+</tr>
+</tbody>
+{% endfor %}
+    </table>
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <h3><label>New Note</label></h3>
+            <input type="text" name="note">
+        </p>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
+<script>
+    jQuery(window).unload(
+    function(e) {
+        alert("Window unload ");
+
+        if(window.screenLeft >screen.width){
+            alert("Window Closed");
+        }
+        else{
+            alert("Window NOT closed");
+        }
+
+
+        /*jQuery.ajax(
+        {
+            url: Liferay.Session._sessionUrls.expire,
+            success: function() {
+                if (Liferay.Session.redirectOnExpire) {
+                    location.href = themeDisplay.getURLHome();
+                }
+            }
+        };    */
+    }
+);
+</script>
